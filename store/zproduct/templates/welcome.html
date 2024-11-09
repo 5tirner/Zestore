@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/initial-z-circle-letter-logo-design-z-logo-icon-vector-template-dark-background_831218-795.jpg">
+    <style>
+        body
+        {
+            background-color: rgb(204, 210, 216);
+        }
+        h1
+        {
+            text-align: center;
+            color: rgb(70, 63, 63);
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        .describe
+        {
+            text-align: center;
+            border: 2px ridge rgb(70, 63, 63);
+            border-radius: 2%;
+            margin-bottom: 100px;
+        }
+        .signBotton
+        {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .loginBotton
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome To ZeStore</h1>
+    <div class="describe">
+        <p> In ZeStore You Can Buy Or Sell A Product. </p>
+        <p> Chat With Other People. </p>
+    </div>
+    <div class="signBotton">
+        <button onclick="moveToSign()" style="background-color: rgb(204, 210, 216); color: rgb(70, 63, 63);">
+            SignIn
+        </button>
+    </div>
+    <div class="loginBotton">
+        <button onclick="moveToLog()" style="background-color: rgb(204, 210, 216); color: rgb(70, 63, 63);">
+            LogIn
+        </button>
+    </div>
+    <script>
+        function moveToSign()
+        {
+            console.log("Try To Sign");
+            window.location.href = location + "sign"
+        }
+        function moveToLog()
+        {
+            console.log("Try To Log");
+            window.location.href = location + "log"
+        }
+    </script>
+</body>
+</html>

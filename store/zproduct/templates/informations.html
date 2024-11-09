@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN NOT SIGN</title>
+    <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/initial-z-circle-letter-logo-design-z-logo-icon-vector-template-dark-background_831218-795.jpg">
+    <style>
+        body
+        {
+            background-color: rgb(204, 210, 216);
+        }
+        h1
+        {
+            text-align: center;
+            color: rgb(70, 63, 63);
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        .describe
+        {
+            text-align: center;
+            border: 2px ridge rgb(70, 63, 63);
+            margin-bottom: 100px;
+        }
+        .back
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weak Password Or Invalid Email</h1>
+    <div class="describe">
+        <p> 1- Your Password Length Must Be More Than Eight. </p>
+        <p> 2- Password Have To Contains Upper And Lower Letters And Digits And Special Symbol. </p>
+        <p> 3- Use Valid Email Format, Example: user@gmail.com.</p>
+        <p> 4- Make Sure That Your Email Is Unused Before.</p>
+        <p> 5- Don't Leave Any Input Empty. </p>
+    </div>
+    <div class="back">
+        <form> {% csrf_token %}
+            <input onclick="window.history.go(-1); return false;" style="background-color: rgb(204, 210, 216);" type="submit" value="BACK TO SIGN">
+        </form>
+    </div>
+</body>
+</html>

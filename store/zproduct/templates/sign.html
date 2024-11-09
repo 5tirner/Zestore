@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNIN</title>
+    <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/initial-z-circle-letter-logo-design-z-logo-icon-vector-template-dark-background_831218-795.jpg">
+    <style>
+        body
+        {
+            background-color: rgb(204, 210, 216);
+        }
+        h1
+        {
+            text-align: center;
+            color: rgb(70, 63, 63);
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        .describe
+        {
+            text-align: center;
+            border: 2px ridge rgb(70, 63, 63);
+            margin-bottom: 100px;
+        }
+        .userInfos
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>SignIn Into ZeStore</h1>
+    <div class="describe">
+        <p> Create Your Account Now, And Start Buy Your Products. </p>
+        <p> You Will Receive A Message In Your Email To Verify Your Account.</p>
+    </div>
+    <div class="userInfos">
+        <form method="post"> {% csrf_token %}
+            <label style="color: rgb(70, 63, 63);"> First Name </label><br>
+            <input style="background-color: rgb(204, 210, 216);" type="text" name="fname"><br><br>
+            <label style="color: rgb(70, 63, 63);"> Last Name </label><br>
+            <input style="background-color: rgb(204, 210, 216);" type="text" name="lname"><br><br>
+            <label style="color: rgb(70, 63, 63);"> Username </label><br>
+            <input style="background-color: rgb(204, 210, 216);" placeholder="4 <= Username <= 12" type="text" name="uname"><br><br>
+            <label style="color: rgb(70, 63, 63);"> E-Mail </label><br>
+            <input style="background-color: rgb(204, 210, 216);" placeholder="@gmail.com" type="text" name="mail"><br><br>
+            <label style="color: rgb(70, 63, 63);"> Password </label><br>
+            <input style="background-color: rgb(204, 210, 216);" placeholder="0-9,A-Z,a-z,?/@#$..." type="text" name="pass"><br><br><br>
+            <input style="background-color: rgb(204, 210, 216);" type="submit" value="SIGNIN">
+        </form>
+    </div>
+</body>
+</html>
