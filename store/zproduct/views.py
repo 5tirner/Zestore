@@ -2,11 +2,13 @@ from django.shortcuts import render
 import requests, os, dotenv, random, string
 from django.http import HttpResponseRedirect
 from .checkInput import checkUsername
-from django.core.mail import send_mail
+from .sendVerfCode import sendCodeVerefication
 
 dotenv.load_dotenv()
 SET_DATA_API = os.getenv("SET_DATA_API")
 CODE_VEREFICATION_API = os.getenv("CODE_VEREFICATION_API")
+EMAIL = os.getenv("EMAIL")
+EMAIL_PASS = os.getenv("EMAIL_PASS")
 
 def welcomePage(req):
     return render(req, 'welcome.html')
@@ -32,13 +34,7 @@ def signin(req):
             saveAPI2 = requests.post(url=CODE_VEREFICATION_API, json={'Username': UserName, 'verCode': virefyCode})
             if saveAPI2.status_code != 201:
                 return render(req, 'serverError.html')
-            send_mail(
-                "Test Send Mail",
-                "From Django Server",
-                "zestore.work@gmail.com",
-                ["zakariasabri290@gmail.com"],
-                # fail_silently=False,
-            )
+            sendCodeVerefication(EMAIL, EMAIL_PASS, Email, virefyCode, FirstName + LastName)
             return HttpResponseRedirect(f'activation?username={UserName}')
         else:
             return render(req, 'informations.html')
@@ -55,5 +51,4 @@ def login(req):
         print("TRY TO LOG WITH")
         print("MAIL: ", req.POST.get('mail'))
         print("PASS: ", req.POST.get('pass'))
-
     return render(req, 'log.html')
