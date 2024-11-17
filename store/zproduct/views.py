@@ -28,6 +28,7 @@ def signin(req):
             'FirstName': FirstName, 'LastName': LastName, 'UserName': UserName,
             'Email': Email, 'Password': Password,
         }
+        print(f"Set Data With The API: {SET_DATA_API}")
         saveAPI = requests.post(url=SET_DATA_API, json=myData)
         if saveAPI.status_code == 201:
             virefyCode = ''.join(random.choices(string.digits, k=6))
