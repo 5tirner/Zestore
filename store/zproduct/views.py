@@ -48,7 +48,6 @@ def activate(req):
     return render(req, 'activation.html')
 
 def login(req):
-    
     if req.method == "POST":
         print("TRY TO LOG WITH")
         print("MAIL: ", req.POST.get('mail'))
