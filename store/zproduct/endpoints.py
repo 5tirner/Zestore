@@ -13,7 +13,7 @@ def setData(req):
         Pass:str = req.data.get('Password')
         if checkPass(Pass) == False or len(Pass) < 8 or checkEmail(Email) == False:
             return response.Response(status=status.HTTP_406_NOT_ACCEPTABLE)
-        # serial.save()
+        serial.save()
         print("USERS INFOS STORED, NOT VERIFIED YET.")
         return response.Response(status=status.HTTP_201_CREATED)
     return response.Response(status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION)
@@ -24,7 +24,7 @@ def createVerification(req):
     print(req.data)
     serial = verificationSysSerial(data=req.data)
     if serial.is_valid():
-        # serial.save()
+        serial.save()
         print("CREATE VERIFICATION CODE")
         return response.Response(status=status.HTTP_201_CREATED)
     return response.Response(status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION)

@@ -42,5 +42,11 @@
             <input style="background-color: rgb(204, 210, 216);" type="submit" value="ACTIVATE">
         </form>
     </div>
+    <script>
+        window.addEventListener('popstate', function(e) {
+            console.log(e);
+            window.location.href = location + 'sign';
+        });
+    </script>
 </body>
 </html>
