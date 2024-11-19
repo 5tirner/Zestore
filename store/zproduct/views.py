@@ -3,7 +3,7 @@ import requests, os, dotenv, random, string
 from django.http import HttpResponseRedirect
 from .checkInput import checkUsername
 from .sendVerfCode import sendCodeVerefication
-from .models import verificationSystem
+from .models import verificationSystem, usersInfos
 
 dotenv.load_dotenv()
 SET_DATA_API = os.getenv("SET_DATA_API")
@@ -48,10 +48,14 @@ def activate(req):
         print("Activation Code = ", req.POST.get('code'))
         try:
             theUser = verificationSystem.objects.get(verCode=req.POST.get('code'))
-            print("The User Have The Right Code")
-            print(f"User Name Is: {theUser.Username}")
+            print(f"User Of The UserName: {theUser.Username} Have The Right Code\nACTIVATING...")
+            activeUser = usersInfos.objects.get(UserName=theUser.Username)
+            activeUser.ACTIVATION = True
+            activeUser.save()
+            return HttpResponseRedirect('log')
         except Exception as e:
             print(f"Error Appearing as: {e}")
+            return
     return render(req, 'activation.html')
 
 def login(req):
