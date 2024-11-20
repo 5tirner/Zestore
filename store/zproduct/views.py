@@ -56,7 +56,6 @@ def activate(req):
                 theUser.delete()
                 return HttpResponseRedirect('log')
             else:
-                #Bad Code
                 return render(req, 'activationFailed.html')
     except:
         return render(req, '404.html')
