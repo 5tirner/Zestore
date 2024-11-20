@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVATION FAILED</title>
+    <style>
+        body
+        {
+            background-color: rgb(204, 210, 216);
+        }
+        h1
+        {
+            text-align: center;
+            color: rgb(70, 63, 63);
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        .describe
+        {
+            text-align: center;
+            border: 2px ridge rgb(70, 63, 63);
+            margin-bottom: 100px;
+        }
+        .back
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wrong Activation Code</h1>
+    <div class="describe">
+        <p>The Code That You Use To Activate Your Account Is Not Correct.</p>
+        <p>Check You Email Message For The Code.</p>
+    </div>
+    <div class="back">
+        <form> {% csrf_token %}
+            <input onclick="window.history.go(-1); return false;" style="background-color: rgb(204, 210, 216);" type="submit" value="ACTIVATION">
+        </form>
+    </div>
+</body>
+</html>

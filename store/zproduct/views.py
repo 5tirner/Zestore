@@ -43,19 +43,22 @@ def signin(req):
     return render(req, 'sign.html')
 
 def activate(req):
-    if req.method == "POST":
-        print("TRYING TO ACTIVATE THE ACCOUNT")
-        print("Activation Code = ", req.POST.get('code'))
-        try:
-            theUser = verificationSystem.objects.get(verCode=req.POST.get('code'))
-            print(f"User Of The UserName: {theUser.Username} Have The Right Code\nACTIVATING...")
-            activeUser = usersInfos.objects.get(UserName=theUser.Username)
-            activeUser.ACTIVATION = True
-            activeUser.save()
-            return HttpResponseRedirect('log')
-        except Exception as e:
-            print(f"Error Appearing as: {e}")
-            return
+    try:
+        theUser = verificationSystem.objects.get(Username=req.GET.get('username'))
+        if req.method == "POST":
+            print(f"{theUser.Username}, TRYING TO ACTIVATE THE ACCOUNT")
+            print("Activation Code = ", req.POST.get('code'))
+            if theUser.verCode == req.POST.get('code'):
+                print(f"User Of The UserName: {theUser.Username} Have The Right Code\nACTIVATING...")
+                userInfos = usersInfos.objects.get(UserName=theUser.Username)
+                userInfos.ACTIVATION = True
+                userInfos.save()
+                theUser.delete()
+                return HttpResponseRedirect('log')
+            else:
+                return render(req, 'activationFailed.html')
+    except:
+        return render(req, '404.html')
     return render(req, 'activation.html')
 
 def login(req):
@@ -63,5 +66,4 @@ def login(req):
         print("TRY TO LOG WITH")
         print("MAIL: ", req.POST.get('mail'))
         print("PASS: ", req.POST.get('pass'))
-
     return render(req, 'log.html')
