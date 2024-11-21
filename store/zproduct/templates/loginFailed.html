@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACTIVATION FAILED</title>
+    <title>LOGIN FAILED</title>
     <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/initial-z-circle-letter-logo-design-z-logo-icon-vector-template-dark-background_831218-795.jpg">
     <style>
         body
@@ -30,14 +30,14 @@
     </style>
 </head>
 <body>
-    <h1>Wrong Activation Code</h1>
+    <h1>Email/Username Or Password Wrong</h1>
     <div class="describe">
-        <p>The Code That You Use To Activate Your Account Is Not Correct.</p>
-        <p>Check You Email Message For The Code.</p>
+        <p>Login Informaion wrong.</p>
+        <p>Use The Email/Username And Password That You Sign up with.</p>
     </div>
     <div class="back">
         <form> {% csrf_token %}
-            <input onclick="window.history.go(-1); return false;" style="background-color: rgb(204, 210, 216);" type="submit" value="ACTIVATION">
+            <input onclick="window.history.go(-1); return false;" style="background-color: rgb(204, 210, 216);" type="submit" value="Login">
         </form>
     </div>
 </body>
