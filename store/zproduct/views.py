@@ -76,7 +76,7 @@ def login(req):
         if userInDb.Password != req.POST.get('pass'):
             return render(req, 'loginFailed.html')
         if userInDb.ACTIVATION == False:
-            return render(req, 'activateLess.html')
+            return HttpResponseRedirect(f'activation?username={userInDb.UserName}')
         return HttpResponseRedirect(f'profile?user={userInDb.UserName}')
     return render(req, 'log.html')
 
