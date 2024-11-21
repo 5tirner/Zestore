@@ -64,13 +64,21 @@ def activate(req):
 def login(req):
     if req.method == "POST":
         print(f"Login With: {req.POST.get('mail')} - {req.POST.get('pass')}")
-    try:
-        userInDb = usersInfos.objects.get(UserName=req.POST.get('mail'))
-        print(f"{userInDb.UserName} Try To Login using USERNAME.")
-    except:
         try:
-            userInDb = usersInfos.objects.get(Email=req.POST.get('mail'))
-            print(f"{userInDb.UserName} Try To Login EMAIL.")
+            userInDb = usersInfos.objects.get(UserName=req.POST.get('mail'))
+            print(f"{userInDb.UserName} Try To Login using USERNAME.")
         except:
+            try:
+                userInDb = usersInfos.objects.get(Email=req.POST.get('mail'))
+                print(f"{userInDb.UserName} Try To Login EMAIL.")
+            except:
+                return render(req, 'loginFailed.html')
+        if userInDb.Password != req.POST.get('pass'):
             return render(req, 'loginFailed.html')
+        if userInDb.ACTIVATION == False:
+            return render(req, 'activateLess.html')
+        return HttpResponseRedirect(f'profile?user={userInDb.UserName}')
     return render(req, 'log.html')
+
+def profile(req):
+    return render(req, 'profile.html')
