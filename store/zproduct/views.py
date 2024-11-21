@@ -81,4 +81,10 @@ def login(req):
     return render(req, 'log.html')
 
 def profile(req):
+    try:
+        print(f'{req.GET.get("user")} Trying To Access To His Profile')
+        user = usersInfos.objects.get(UserName=req.GET.get('user'))
+        print(f'{user.UserName} => Enter')
+    except:
+        return render(req, '404.html')
     return render(req, 'profile.html')
