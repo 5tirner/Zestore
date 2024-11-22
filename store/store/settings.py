@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'daphne',
     'channels',
+    'rest_framework_simplejwt',
     'rest_framework',
     'django.contrib.staticfiles',
     'zproduct',
@@ -72,6 +73,13 @@ TEMPLATES = [
 ]
 
 ASGI_APPLICATION = 'store.asgi.application'
+
+# JWT CONFIG
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 
 # Database
