@@ -1,54 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGNIN</title>
+    <title>Sign In - ZeStore</title>
     <link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-vector/20210313/ourmid/pngtree-letter-z-logo-png-png-image_3045054.jpg">
     <style>
-        body
-        {
-            background-color: rgb(204, 210, 216);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1
-        {
-            text-align: center;
-            color: rgb(70, 63, 63);
-            margin-top: 50px;
-            margin-bottom: 80px;
+
+        body {
+            height: fit-content;
+            background-color: #f4f7fc;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            padding: 20px;
+            color: #4a4a4a;
+            overflow-x: hidden;
         }
-        .describe
-        {
+
+        h1 {
             text-align: center;
-            border: 2px ridge rgb(70, 63, 63);
-            margin-bottom: 100px;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-        .userInfos
-        {
+
+        .describe {
             text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .describe p {
+            margin-bottom: 15px;
+        }
+
+        .userInfos {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #f4f7fc;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #4A90E2;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD;
+        }
+
+        input[type="submit"]:active {
+            background-color: #2C6D9D;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .describe,
+            .userInfos {
+                padding: 20px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="submit"] {
+                font-size: 1em;
+            }
+
+            .describe {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .userInfos {
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .footer {
+                position: absolute;
+                bottom: 0px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .describe {
+                padding: 15px;
+            }
+
+            .userInfos {
+                padding: 15px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>SignIn Into ZeStore</h1>
+    <h1>Sign In To ZeStore</h1>
     <div class="describe">
-        <p> Create Your Account Now, And Start Buy Your Products. </p>
-        <p> You Will Receive A Message In Your Email To Verify Your Account.</p>
+        <p>Create your account now and start buying your products.</p>
+        <p>You will receive a message in your email to verify your account.</p>
     </div>
     <div class="userInfos">
-        <form method="post"> {% csrf_token %}
-            <label style="color: rgb(70, 63, 63);"> First Name </label><br>
-            <input style="background-color: rgb(204, 210, 216);" type="text" name="fname"><br><br>
-            <label style="color: rgb(70, 63, 63);"> Last Name </label><br>
-            <input style="background-color: rgb(204, 210, 216);" type="text" name="lname"><br><br>
-            <label style="color: rgb(70, 63, 63);"> Username </label><br>
-            <input style="background-color: rgb(204, 210, 216);" placeholder="4~12 Characters" type="text" name="uname"><br><br>
-            <label style="color: rgb(70, 63, 63);"> E-Mail </label><br>
-            <input style="background-color: rgb(204, 210, 216);" placeholder="@gmail.com" type="text" name="mail"><br><br>
-            <label style="color: rgb(70, 63, 63);"> Password </label><br>
-            <input style="background-color: rgb(204, 210, 216);" placeholder="8~50 (0-9,A-Z,a-z,?/@#$.)" type="password" name="pass"><br><br><br>
-            <input style="cursor: pointer;background-color: rgb(204, 210, 216);" type="submit" value="SIGNIN">
+        <form method="post">
+            {% csrf_token %}
+            <label for="fname">First Name</label><br>
+            <input type="text" id="fname" name="fname" placeholder="Your First Name" required><br>
+            <label for="lname">Last Name</label><br>
+            <input type="text" id="lname" name="lname" placeholder="Your Last Name" required><br>
+            <label for="uname">Username</label><br>
+            <input type="text" id="uname" name="uname" placeholder="4~12 Characters" required><br>
+            <label for="mail">E-Mail</label><br>
+            <input type="text" id="mail" name="mail" placeholder="@gmail.com" required><br>
+            <label for="pass">Password</label><br>
+            <input type="password" id="pass" name="pass" placeholder="8~50 (0-9, A-Z, a-z, ?/@#$.)" required><br>
+            <input type="submit" value="Sign In">
         </form>
     </div>
 </body>
+
 </html>

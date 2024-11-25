@@ -1,67 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Welcome - ZeStore</title>
     <link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-vector/20210313/ourmid/pngtree-letter-z-logo-png-png-image_3045054.jpg">
     <style>
-        body
-        {
-            background-color: rgb(204, 210, 216);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1
-        {
-            text-align: center;
-            color: rgb(70, 63, 63);
-            margin-top: 50px;
-            margin-bottom: 80px;
+
+        body {
+            background-color: #f4f7fc;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #4a4a4a;
         }
-        .describe
-        {
+
+        h1 {
             text-align: center;
-            border: 2px ridge rgb(70, 63, 63);
-            border-radius: 2%;
-            margin-bottom: 100px;
+            color: #333;
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-        .signBotton
-        {
+
+        .describe {
             text-align: center;
-            margin-bottom: 10px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
         }
-        .loginBotton
-        {
-            text-align: center;
+
+        .describe p {
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .button-container button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container button:hover {
+            background-color: #357ABD;
+        }
+
+        .button-container button:active {
+            background-color: #2C6D9D;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* For responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .describe {
+                padding: 30px;
+            }
+
+            .button-container button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
         }
     </style>
 </head>
+
 <body>
     <h1>Welcome To ZeStore</h1>
     <div class="describe">
-        <p> In ZeStore You Can Buy Or Sell A Product. </p>
-        <p> Chat With Other People. </p>
+        <p>In ZeStore, you can buy or sell products easily.</p>
+        <p>Chat with other users to make transactions smoother and faster.</p>
     </div>
-    <div class="signBotton">
-        <button onclick="moveToSign()" style="cursor: pointer;background-color: rgb(204, 210, 216); color: rgb(70, 63, 63);">
-            SignIn
-        </button>
+    <div class="button-container">
+        <button onclick="moveToSign()">Sign Up</button>
+        <button onclick="moveToLog()">Log In</button>
     </div>
-    <div class="loginBotton">
-        <button onclick="moveToLog()" style="cursor: pointer;background-color: rgb(204, 210, 216); color: rgb(70, 63, 63);">
-            LogIn
-        </button>
+
+    <div class="footer">
+        <p>&copy; zasabri on the back. 2024 ZeStore</p>
     </div>
+
     <script>
-        function moveToSign()
-        {
-            console.log("Try To Sign");
-            window.location.href = location + "sign"
+        function moveToSign() {
+            console.log("Navigating to Sign Up");
+            window.location.href = location + "sign";
         }
-        function moveToLog()
-        {
-            console.log("Try To Log");
-            window.location.href = location + "log"
+
+        function moveToLog() {
+            console.log("Navigating to Log In");
+            window.location.href = location + "log";
         }
     </script>
 </body>
+
 </html>

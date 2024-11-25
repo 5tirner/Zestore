@@ -3,45 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAN NOT SIGN</title>
+    <title>Cannot Sign In</title>
     <link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-vector/20190120/ourmid/pngtree-info-vector-icon-png-image_470297.jpg">
     <style>
-        body
-        {
-            background-color: rgb(204, 210, 216);
+        /* General Body Style */
+        body {
+            background-color: #f4f7fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
         }
-        h1
-        {
+
+        /* Main Container */
+        .container {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
             text-align: center;
-            color: rgb(70, 63, 63);
-            margin-top: 50px;
-            margin-bottom: 80px;
         }
-        .describe
-        {
-            text-align: center;
-            border: 2px ridge rgb(70, 63, 63);
-            margin-bottom: 100px;
+
+        /* Title Style */
+        h1 {
+            font-size: 32px;
+            color: #d9534f;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-        .back
-        {
-            text-align: center;
+
+        /* Description Style */
+        .describe {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        .describe p {
+            margin: 10px 0;
+        }
+
+        /* Button Style */
+        .back button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Style */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Weak Password Or Invalid Email</h1>
-    <div class="describe">
-        <p> 1- Your Password Length Must Be More Than Eight. </p>
-        <p> 2- Password Have To Contains Upper And Lower Letters And Digits And Special Symbol. </p>
-        <p> 3- Use Valid Email Format, Example: user@gmail.com.</p>
-        <p> 4- Make Sure That Your Email Is Unused Before.</p>
-        <p> 5- Don't Leave Any Input Empty. </p>
+    <div class="container">
+        <h1>Weak Password Or Invalid Email</h1>
+        <div class="describe">
+            <p>1. Your password must be more than eight characters long.</p>
+            <p>2. It must contain upper&lower letters, digits, symbols.</p>
+            <p>3. Use a valid email format, e.g., user@gmail.com.</p>
+            <p>4. Ensure that your email has not been used before.</p>
+            <p>5. Do not leave any input fields empty.</p>
+        </div>
+        <div class="back">
+            <form>
+                {% csrf_token %}
+                <button onclick="window.history.go(-1); return false;">Back to Sign In</button>
+            </form>
+        </div>
     </div>
-    <div class="back">
-        <form> {% csrf_token %}
-            <input onclick="window.history.go(-1); return false;" style="cursor: pointer;background-color: rgb(204, 210, 216);" type="submit" value="BACK TO SIGN">
-        </form>
-    </div>
+    <footer>
+        <p>If you need assistance, ask <a href="#">zasabr.connect@gmail.com</a></p>
+    </footer>
 </body>
 </html>

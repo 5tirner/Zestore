@@ -1,52 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACTIVATION</title>
+    <title>Activate Your Account - ZeStore</title>
     <link rel="icon" type="image/x-icon" href="https://png.pngtree.com/png-vector/20210313/ourmid/pngtree-letter-z-logo-png-png-image_3045054.jpg">
     <style>
-        body
-        {
-            background-color: rgb(204, 210, 216);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1
-        {
-            text-align: center;
-            color: rgb(70, 63, 63);
-            margin-top: 50px;
-            margin-bottom: 80px;
+
+        body {
+            background-color: #f4f7fc;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #4a4a4a;
         }
-        .describe
-        {
+
+        h1 {
             text-align: center;
-            border: 2px ridge rgb(70, 63, 63);
-            margin-bottom: 100px;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: bold;
         }
-        .Activation
-        {
+
+        .describe {
             text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .describe p {
+            margin-bottom: 20px;
+        }
+
+        .Activation {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #f4f7fc;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4A90E2;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD;
+        }
+
+        input[type="submit"]:active {
+            background-color: #2C6D9D;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* For responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .describe {
+                padding: 20px;
+            }
+
+            .Activation {
+                padding: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>ACTIVATE YOUR ACCOUNT</h1>
+    <h1>Activate Your Account</h1>
     <div class="describe">
-        <p> It's Time To Activate Your Account And Start You Business. </p>
-        <p> Check The Email That You Sign With It.</p>
+        <p>It's time to activate your account and start your business.</p>
+        <p>Please check the email you signed up with for the activation code.</p>
     </div>
     <div class="Activation">
-        <form method="post"> {% csrf_token %}
-            <label style="color: rgb(70, 63, 63);"> Enter The 6-Digits </label><br>
-            <input style="background-color: rgb(204, 210, 216);" type="text" name="code"><br><br>
-            <input style="cursor: pointer;background-color: rgb(204, 210, 216);" type="submit" value="ACTIVATE">
+        <form method="post">
+            {% csrf_token %}
+            <label for="code">Enter the 6-Digit Activation Code</label><br>
+            <input type="text" id="code" name="code" placeholder="6-digit code" required><br>
+            <input type="submit" value="Activate">
         </form>
     </div>
+
     <script>
-        window.addEventListener('popstate', function(e) {
+        window.addEventListener('popstate', function (e) {
             console.log(e);
             window.location.href = location + 'sign';
         });
     </script>
 </body>
+
 </html>
