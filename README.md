@@ -1,4 +1,4 @@
-## Zestore is a project for a store where the users can buy and sell products.
+## Zestore is a store where the users can buy and sell products.
 ## I create it using django, django-templates, and sqlite3 as database.
 ## DOES NOT DONE YET.
 ## I make it public, so if want to contrbuiting or you have and advice, let me know.
