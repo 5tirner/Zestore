@@ -13,8 +13,8 @@ urlpatterns = [
     #ENDPOINTS
     path('setData', setData),
     path('verf', createVerification),
-    #AUTH
-    path('api/token/', views.TokenObtainPairView.as_view(), name='default'),
-    path('api/token/refresh/', views.TokenRefreshView.as_view(), name='refresh'),
-    path('api/token/verify/', views.TokenVerifyView.as_view(), name='verify'),
+    # #AUTH
+    # path('api/token/', views.TokenObtainPairView.as_view(), name='default'),
+    # path('api/token/refresh/', views.TokenRefreshView.as_view(), name='refresh'),
+    # path('api/token/verify/', views.TokenVerifyView.as_view(), name='verify'),
 ]

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .checkInput import checkUsername
 from .sendVerfCode import sendCodeVerefication
 from .models import verificationSystem, usersInfos
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 dotenv.load_dotenv()
 SET_DATA_API = os.getenv("SET_DATA_API")
